@@ -1,7 +1,8 @@
 var gameEngine = new GameEngine();
 
 var ASSET_MANAGER = new AssetManager();
-ASSET_MANAGER.queueDownload("./sprites/vaderpixelatedsprite.png");
+ASSET_MANAGER.queueDownload("./sprites/vadersprite.png");
+ASSET_MANAGER.queueDownload("./sprites/vaderhdsprite.png");
 
 ASSET_MANAGER.downloadAll(function () {
 	var canvas = document.getElementById('gameWorld');

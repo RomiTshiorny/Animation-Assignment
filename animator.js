@@ -5,10 +5,10 @@ class Animator {
         this.elapsedTime = 0;
         this.totalTime = this.frameCount * this.frameDuration;
 
-        console.log("width: " + spritesheet.width + " height: " + spritesheet.height)
+        //console.log("width: " + spritesheet.width + " height: " + spritesheet.height)
     }
 
-    drawFrame(tick, ctx, x, y, scale) {
+    drawFrame(tick, ctx, x, y, scale, visible) {
         this.elapsedTime += tick;
 
         if (this.isDone()) {
@@ -23,9 +23,11 @@ class Animator {
         let frame = this.currentFrame();
         //console.log(Math.floor(frame/5));
         if (this.reverse) frame = this.frameCount - frame - 1;
+        if (visible) { 
         ctx.drawImage(this.spritesheet, this.xStart + (frame % 5) * (this.width + this.framePadding),
-            this.yStart + Math.floor(frame / 5)*(this.height + this.framePadding), this.width, this.height, x, y,
-            this.width * scale, this.width * scale);
+            this.yStart + Math.floor(frame / 5) * (this.height + this.framePadding), this.width, this.height, x, y,
+            this.width * scale, this.height * scale);
+        }
 
     }
 
